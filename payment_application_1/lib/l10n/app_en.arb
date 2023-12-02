@@ -1,0 +1,40 @@
+{
+  "loginPageTitle": "Login or sign up to start Payment",
+  "logupPageTitle": "sign up to start Payment",
+    "weakPass":"password too weak",
+    "passMatch": "passwords don't match",
+  "helperPassText": "at least 5 characters with lower case, upper case letters and special character",
+  "passMatch": "passwords don't match",
+  "emailHintText":"e-mail or mobile number",
+  "emailRequiredWarning":"email required",
+  "emailFormatWarning" :"E-mail format not correct",
+  "passwordRequiredWarning":"password required",
+  "passwordHintText":"your password",
+  "passowordFormatWarning":"Password format not correct",
+  "forgotPassword":"forgot password?",
+  "loginText":"Login",
+  "notRegistered":"not registered?",
+  "createAccount":"create Account",
+  "welcome":"Welcome",
+  "toApp":"To Paymob App",
+  "selectLanguage":"Select Language",
+  "start":"start",
+
+  "logupText":"Signup",
+  "passConfirm":"confirm password",
+  "phoneNumber":"phone number",
+    "phoneNumberRequired":"phone number required",
+  "phoneInvalidText":"Invalid phone number",
+  "phoneLognupText":"logup with phone number",
+  "firstName":"first name",
+  "lastName":"last name",
+  "firstNameRequiredText":"first name required",
+    "lastNameRequiredText":"last name required"
+
+
+}
+
+
+
+
+

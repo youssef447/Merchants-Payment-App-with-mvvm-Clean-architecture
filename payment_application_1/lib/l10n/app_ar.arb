@@ -1,0 +1,37 @@
+{
+  "loginPageTitle": "قم بتسجيل الدخول او انشاء حساب لبدء الدفع",
+  "logupPageTitle": "قم بانشاء حساب لبدء الدفع",
+  "weakPass":"كلمة السر ضعيفة",
+    "passMatch": "كلمة السر غير متطابقة",
+
+  "helperPassText": "ما لا يقل عن 5 أحرف بأحرف صغيرة وأحرف كبيرة وحروف خاصة",
+    "passMatch": "كلمة السر غير متطابقة",
+  "phoneInvalidText":"الرقم غير صحيح",
+
+  "emailHintText":"البريد الإلكتروني أو رقم الهاتف المحمول",
+  "emailRequiredWarning":"البريد الإلكتروني مطلوب",
+  "emailFormatWarning" :"تنسيق البريد الإلكتروني غير صحيح",
+  "passwordHintText":"كلمة السر",
+  "passowordFormatWarning":"تنسيق كلمة السر غير صحيح",
+  "passwordRequiredWarning":"كلمة السر مطلوبة",
+  "forgotPassword":"نسيت كلمة السر؟",
+  "loginText":"تسجيل الدخول",
+  "notRegistered":"غير مسجل؟",
+  "createAccount":"انشاء حساب",
+  "welcome":"مرحبا بك",
+  "toApp":"في تطبيق باي موب",
+  "selectLanguage":"اختر اللغة",
+  "start":"البدء",
+
+  "logupText":"انشاء حساب",
+  "passConfirm":"تأكيد كلمة السر",
+  "phoneNumber":"رقم الهاتف",
+      "phoneNumberRequired":"رقم الهاتف مطلوب",
+
+  "phoneLogupText":"انشاء حساب برقم الهاتف",
+    "firstName":"الاسم الاول",
+  "lastName":"الاسم الاخير",
+  "firstNameRequiredText":"الاسم الاول مطلوب",
+    "lastNameRequiredText":"الاسم الثاني مطلوب"
+
+}
