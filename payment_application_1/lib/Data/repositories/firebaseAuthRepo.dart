@@ -77,7 +77,7 @@ class FirebaseAuthRepo implements IAuthRepo {
       print(response.user!.photoURL);
       print(response.user!.displayName);
 
-    /*   await FirebaseFirestore.instance
+      /*   await FirebaseFirestore.instance
           .collection('merchants')
           .doc(response.user!.uid)
           .set(
@@ -92,5 +92,10 @@ class FirebaseAuthRepo implements IAuthRepo {
       return true;
     }
     return false;
+  }
+
+  @override
+  Future<void> signOut() async {
+    _authService.signOut();
   }
 }
