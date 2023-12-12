@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:payment_application_1/main.dart';
-import 'package:payment_application_1/views/splashScreen.dart';
+import 'package:payment_application_1/Presentation/screens/splashScreen.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

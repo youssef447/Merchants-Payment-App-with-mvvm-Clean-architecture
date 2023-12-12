@@ -51,15 +51,20 @@ dependencies:
   intl_phone_field: ^3.0.0
   curved_navigation_bar: ^1.0.3
   currency_picker: ^2.0.19
+  cached_network_image: ^3.3.0
+  get_it: ^7.6.4
+  google_sign_in: '^6.2.0'
 
 
   flutter_localizations:
     sdk: flutter
   intl: any
+  flutter_cache_manager: ^3.3.1
 
 
 
 
+ # flutter_gen: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -2,42 +2,53 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:payment_application_1/shared/styles/themes.dart';
-import 'package:payment_application_1/view-model/locales/locales%20cubit.dart';
-import 'package:payment_application_1/view-model/locales/locales%20states.dart';
-import 'package:payment_application_1/views/AuthScreens/loginScreen.dart';
-import 'package:payment_application_1/views/splashScreen.dart';
-import 'package:payment_application_1/views/home.dart';
+import 'Presentation/view-model/blocObserver.dart';
+import 'core/utils/sharedFunctions.dart';
+import 'core/utils/themes.dart';
+import 'Presentation/view-model/locales/locales cubit.dart';
+import 'Presentation/view-model/locales/locales states.dart';
+import 'Presentation/screens/AuthScreens/loginScreen.dart';
+import 'Presentation/screens/splashScreen.dart';
+import 'Presentation/screens/homeScreen.dart';
 
-import 'Network/local/cach_helper.dart';
-import 'Network/remote/dio_helper.dart';
-import 'constants.dart';
+import 'core/Network/local/cach_helper.dart';
+import 'core/Network/remote/dio_helper.dart';
+import 'core/utils/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'startupErrorWidget.dart';
+import 'Presentation/screens/startupErrorScreen.dart';
+import 'core/Di/injection.dart';
 
 void main() async {
   WidgetsFlutterBinding
       .ensureInitialized(); //عشان اتاكد انه هيخلص كل الawaits قبل الرن
+  Bloc.observer = MyBlocObserver();
+
   try {
     await Firebase.initializeApp();
-
+    configurationDependencies();
     await CacheHelper.init();
 
     Widget homeWidget;
     if (CacheHelper.getData(key: 'started') == null) {
       homeWidget = const SplashScreen();
     } else {
-      String? tmpToken = CacheHelper.getData(key: 'token');
+      /*  String? tmpToken = CacheHelper.getData(key: 'token');
       if (tmpToken == null) {
         homeWidget = LoginScreen();
       } else {
         token = tmpToken;
-        print(token);
         homeWidget = const HomeScreen();
+      } */
+
+      if (isLoggedIn()) {
+        // signed in
+        homeWidget = const HomeScreen();
+      } else {
+        homeWidget = LoginScreen();
       }
     }
-
+//homeWidget=const HomeScreen();
     DioHelper.init(baseUrl: baseUrl);
     runApp(MyApp(home: homeWidget));
   } catch (_) {
@@ -59,8 +70,6 @@ class MyApp extends StatelessWidget {
       child: BlocConsumer<LocalesCubit, LocalesStates>(
         listener: (context, state) {},
         builder: (context, state) {
-          globalLocale = AppLocalizations.of(context);
-
           LocalesCubit cubit = LocalesCubit.get(context);
 
           if (CacheHelper.getData(key: 'lang') == 'ar') {
