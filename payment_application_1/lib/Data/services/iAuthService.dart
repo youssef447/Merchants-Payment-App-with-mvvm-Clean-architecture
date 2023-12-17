@@ -2,6 +2,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class IAuthService {
+  
+  Future<void>sendOTPCode({required String phoneNumber,});
+
+
+
   Future<UserCredential> signInEmailPass({
     required String email,
     required String pass,
@@ -15,4 +20,6 @@ abstract class IAuthService {
   });
 
   Future<UserCredential?> signInWithGoogle();
+
+  Future<void>signOut();
 }

@@ -13,6 +13,7 @@ class DefaultContainer extends StatelessWidget {
       width: width,
       height: height,
       clipBehavior: Clip.hardEdge,
+      
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(

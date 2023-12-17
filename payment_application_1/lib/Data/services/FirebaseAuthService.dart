@@ -6,6 +6,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'iAuthService.dart';
 
 class FirebaseAuthService implements IAuthService {
+  String? _verificationId;
+  String? verificationId() => _verificationId;
   @override
   Future<UserCredential> signInEmailPass({
     required String email,
@@ -30,8 +32,12 @@ class FirebaseAuthService implements IAuthService {
     File? profileImage,
   }) async {
     try {
-      final response = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: pass);
+      sendOTPCode(phoneNumber: phone).then((value) => null);
+      final response =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: pass,
+      );
       return response;
     } on SocketException {
       throw ('No Internet Connection');
@@ -82,7 +88,7 @@ class FirebaseAuthService implements IAuthService {
         final credential = GoogleAuthProvider.credential(
           accessToken: googleAuth.accessToken,
           idToken: googleAuth.idToken,
-          
+
           // Once signed in, return the UserCredential
         );
         ret = await FirebaseAuth.instance.signInWithCredential(credential);
@@ -92,5 +98,33 @@ class FirebaseAuthService implements IAuthService {
     } on SocketException {
       throw ('No Internet Connection');
     }
+  }
+
+  @override
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
+
+  @override
+  Future<void> sendOTPCode({
+    required String phoneNumber,
+  }) async {
+    FirebaseAuth.instance.verifyPhoneNumber(
+      timeout: const Duration(seconds: 0),
+      phoneNumber: phoneNumber,
+      verificationCompleted: (phoneAuthCredential) {
+        /* await FirebaseAuth.instance.currentUser!
+            .linkWithPhoneNumber(phoneNumber);  */
+      },
+      verificationFailed: (error) {
+        print('err failed ${error.message.toString()}');
+        throw error;
+      },
+      codeSent: (verificationId, forceResendingToken) {
+        _verificationId = verificationId;
+        print('cooooooooodeeeee issssss seeeeeeeeent');
+      },
+      codeAutoRetrievalTimeout: (verificationId) {},
+    );
   }
 }

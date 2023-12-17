@@ -52,6 +52,8 @@ class LogupCubit extends Cubit<LogupStates> {
     emit(PhoneRequiredMessageState());
   }
 
+ 
+
   bool loadingLogUp = false;
 
   void signup({
@@ -62,8 +64,19 @@ class LogupCubit extends Cubit<LogupStates> {
     required String phone,
     required BuildContext ctx,
   }) {
+    print('nooooooooooooooooooooooooooooooooooo');
     loadingLogUp = true;
     emit(LogupLoadingState());
+
+    locators
+        .get<IAuthRepo>()
+        .sendOTP(phoneNumber: phone).then((value) {
+          //        navigate(context, OTPScreen(phoneNumber: phoneNumber),);
+          //        check code and if correct signUp
+
+
+
+        });
 
     locators
         .get<IAuthRepo>()
@@ -75,36 +88,32 @@ class LogupCubit extends Cubit<LogupStates> {
           phone: phone,
         )
         .then((value) {
-      
-     
-        loadingLogUp = false;
-        AwesomeDialog(
-            context: ctx,
-            body: Text(
-              "Registered Successfully",
-              style: Theme.of(ctx).textTheme.titleLarge,
-            ),
-            title: "Sign up",
-            dialogType: DialogType.success,
-            btnOkColor: defaultColor,
-            btnOkOnPress: () {
-              Navigator.of(ctx).pop();
-            }).show();
-        emit(LogupSuccessState());
-      
-      }).catchError((e) {
-        loadingLogUp = false;
-        emit(
-          LogupFaluireState(
-            e.toString(),
+      loadingLogUp = false;
+      AwesomeDialog(
+          context: ctx,
+          body: Text(
+            "Registered Successfully",
+            style: Theme.of(ctx).textTheme.titleLarge,
           ),
-        );
-        ScaffoldMessenger.of(ctx).showSnackBar(
-          SnackBar(
-            content: Text(e.toString()),
-          ),
-        );
-      
+          title: "Sign up",
+          dialogType: DialogType.success,
+          btnOkColor: defaultColor,
+          btnOkOnPress: () {
+            Navigator.of(ctx).pop();
+          }).show();
+      emit(LogupSuccessState());
+    }).catchError((e) {
+      loadingLogUp = false;
+      emit(
+        LogupFaluireState(
+          e.toString(),
+        ),
+      );
+      ScaffoldMessenger.of(ctx).showSnackBar(
+        SnackBar(
+          content: Text(e.toString()),
+        ),
+      );
     }).catchError(
       (onError) {
         emit(

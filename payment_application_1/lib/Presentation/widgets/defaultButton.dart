@@ -10,10 +10,15 @@ class DefaultButton extends StatelessWidget {
   final Color? sideColor;
   final double? raduis;
   final Widget child;
+  final double? width;
+    final double? height;
+
 
   const DefaultButton(
       {super.key,
       this.onClicked,
+      this.width,
+      this.height,
       this.backgroundColor,
       this.elevation,
       this.foregroundColor,
@@ -40,7 +45,7 @@ class DefaultButton extends StatelessWidget {
           ),
         ),
         minimumSize: MaterialStateProperty.all(
-          const Size(double.infinity, 55),
+           Size(width??double.infinity, height??55),
         ),
         backgroundColor:
             MaterialStateProperty.all<Color>(backgroundColor ?? Colors.black),

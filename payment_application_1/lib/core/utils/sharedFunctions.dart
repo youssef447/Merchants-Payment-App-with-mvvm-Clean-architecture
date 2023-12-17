@@ -12,16 +12,16 @@ navigateTo(BuildContext ctx, Widget screen) {
     ),
   );
 }
+
 ///check whether user signedIn or not exists
-bool isLoggedIn(){
+bool isLoggedIn() {
   if (FirebaseAuth.instance.currentUser != null) {
     // signed in
     return true;
-} else {
-   // signed out  
-   return false;
-   
-}
+  } else {
+    // signed out
+    return false;
+  }
 }
 
 navigate(BuildContext ctx, Widget screen) {

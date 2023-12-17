@@ -21,7 +21,7 @@ const backgroundColor = Colors.white;
 const defaultFieldsColor = Color(0Xfff6f8fc);
 
  AppLocalizations? globalLocale;
-
+String? coSent;
 late final String token;
 const integrationIdCard = 4062929;
 const integrationIdKiosk = 4140496;

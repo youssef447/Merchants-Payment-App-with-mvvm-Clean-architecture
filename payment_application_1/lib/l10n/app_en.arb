@@ -29,7 +29,8 @@
   "firstName":"first name",
   "lastName":"last name",
   "firstNameRequiredText":"first name required",
-    "lastNameRequiredText":"last name required"
+    "lastNameRequiredText":"last name required",
+  "otpSentErrorMsg":"error sending Otp, Please click on resend button"  
 
 
 }

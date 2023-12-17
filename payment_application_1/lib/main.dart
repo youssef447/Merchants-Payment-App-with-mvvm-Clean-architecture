@@ -1,7 +1,11 @@
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+
+import 'Presentation/screens/AuthScreens/logupScreen.dart';
 import 'Presentation/view-model/blocObserver.dart';
 import 'core/utils/sharedFunctions.dart';
 import 'core/utils/themes.dart';
@@ -20,12 +24,19 @@ import 'Presentation/screens/startupErrorScreen.dart';
 import 'core/Di/injection.dart';
 
 void main() async {
-  WidgetsFlutterBinding
+  WidgetsBinding binding = WidgetsFlutterBinding
       .ensureInitialized(); //عشان اتاكد انه هيخلص كل الawaits قبل الرن
   Bloc.observer = MyBlocObserver();
 
+  FlutterNativeSplash.preserve(
+    widgetsBinding: binding,
+  );
+
   try {
     await Firebase.initializeApp();
+   /*  await FirebaseAppCheck.instance.activate(
+        //webRecaptchaSiteKey: 'recaptcha-v3-site-key',
+        ); */
     configurationDependencies();
     await CacheHelper.init();
 
@@ -48,9 +59,11 @@ void main() async {
         homeWidget = LoginScreen();
       }
     }
-//homeWidget=const HomeScreen();
+    homeWidget = LogupScreen();
+
     DioHelper.init(baseUrl: baseUrl);
     runApp(MyApp(home: homeWidget));
+    FlutterNativeSplash.remove();
   } catch (_) {
     runApp(const AppstartupErrorWidget("Error: failed Starting App"));
   }
@@ -61,9 +74,9 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key, required this.home});
   @override
   Widget build(BuildContext context) {
-    height = MediaQuery.of(context).size.height;
-    width = MediaQuery.of(context).size.width;
     topPadding = MediaQuery.of(context).padding.top;
+    height = MediaQuery.of(context).size.height - topPadding;
+    width = MediaQuery.of(context).size.width - topPadding;
 
     return BlocProvider(
       create: (context) => LocalesCubit(),

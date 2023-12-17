@@ -1,18 +1,25 @@
 
 abstract class IAuthRepo {
-  Future<void> signInEmailPass({
-    required String email,
-    required String pass,
+  /// returns verification Id, To be used later in phoneAuthCredential
+  Future<String?> sendOTP({
+    required String phoneNumber,
   });
-  Future<void>signUp({
+
+  Future<void> signUp({
     required String email,
     required String firstName,
     required String lastName,
     required String pass,
     required String phone,
+    String? imgUrl,
   });
 
-   Future<bool> signInWithGoogle();
+  Future<String> signInEmailPass({
+    required String email,
+    required String pass,
+  });
 
-  
+  Future<bool> signInWithGoogle();
+
+  Future<void> signOut();
 }

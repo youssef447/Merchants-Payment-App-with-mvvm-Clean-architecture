@@ -32,6 +32,7 @@
     "firstName":"الاسم الاول",
   "lastName":"الاسم الاخير",
   "firstNameRequiredText":"الاسم الاول مطلوب",
-    "lastNameRequiredText":"الاسم الثاني مطلوب"
+    "lastNameRequiredText":"الاسم الثاني مطلوب",
+  "otpSentErrorMsg":"خطأ في ارسال كود التحقق, من فضلك اضغد علي زر اعادة الارسال"  
 
 }

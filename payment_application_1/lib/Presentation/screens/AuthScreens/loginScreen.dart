@@ -6,6 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../core/utils/constants.dart';
 import '../../view-model/Auth/loginCubit.dart';
+import '../../widgets/defaultContainer.dart';
 import '../../widgets/loginForm.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -13,7 +14,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    globalLocale??=AppLocalizations.of(context)!;
+    globalLocale ??= AppLocalizations.of(context)!;
     return Scaffold(
       backgroundColor: defaultColor,
       //appBar: AppBar(title: const Text('PAYMENT app')),
@@ -21,20 +22,35 @@ class LoginScreen extends StatelessWidget {
         // lazy: false,
         create: (_) => LoginCubit(),
         child: SafeArea(
-          child: Column(
-            children: [
-              SizedBox(
-                height: height * 0.27,
-                child: Image.asset(
-                  ImageAssets.paymob,
-                  width: double.infinity,
+          child: OrientationBuilder(builder: (context, orientation) {
+            return CustomScrollView(
+              slivers: [
+                SliverToBoxAdapter(
+                  child: Image.asset(
+                    ImageAssets.paymob,
+                    //width: double.infinity,
+                    height: orientation == Orientation.portrait
+                        ? height * 0.27
+                        : width * 0.17,
+
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              Expanded(
-                child: FadeInDown(child: LoginForm()),
-              ),
-            ],
-          ),
+                SliverFillRemaining(
+                  child: FadeInDown(
+                    child: DefaultContainer(
+                    
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 18.0, right: 18.0, bottom: 5),
+                        child: LoginForm(),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            );
+          }),
         ),
       ),
     );

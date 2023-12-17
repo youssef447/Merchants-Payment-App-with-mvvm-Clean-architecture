@@ -8,7 +8,7 @@ class FirebaseAuthRepo implements IAuthRepo {
   final FirebaseAuthService _authService;
   const FirebaseAuthRepo(this._authService);
   @override
-  Future<void> signInEmailPass({
+  Future<String> signInEmailPass({
     required String email,
     required String pass,
   }) async {
@@ -19,8 +19,12 @@ class FirebaseAuthRepo implements IAuthRepo {
       email: email,
       pass: pass,
     );
-
-    await CacheHelper.saveData(key: 'token', value: response.user!.uid);
+    if (CacheHelper.getData(key: response.user!.uid) == null) {
+      await _authService.signOut();
+      return '';
+    }
+    return response.user!.uid;
+//    await CacheHelper.saveData(key: 'token', value: response.user!.uid);
   }
 
   @override
@@ -29,7 +33,8 @@ class FirebaseAuthRepo implements IAuthRepo {
       required String firstName,
       required String lastName,
       required String pass,
-      required String phone}) async {
+      required String phone,
+      String? imgUrl}) async {
     final response = await _authService.signUp(
       email: email,
       pass: pass,
@@ -50,7 +55,6 @@ class FirebaseAuthRepo implements IAuthRepo {
             .child("profile")
             .getDownloadURL();
       } */
-
     //create table for merchant information
 
     await FirebaseFirestore.instance
@@ -72,23 +76,24 @@ class FirebaseAuthRepo implements IAuthRepo {
     final response = await _authService.signInWithGoogle();
 
     if (response != null) {
-      //await CacheHelper.saveData(key: 'token', value: response.user!.uid);
-      print(response.user!.phoneNumber);
-      print(response.user!.photoURL);
-      print(response.user!.displayName);
+      if (CacheHelper.getData(key: 'GoogleToken') == null) {
+        print('oh shit i\'m storing again');
+        await CacheHelper.saveData(
+            key: 'GoogleToken', value: response.user!.uid);
+        await FirebaseFirestore.instance
+            .collection('merchants')
+            .doc(response.user!.uid)
+            .set(
+          {
+            'firstName': response.user!.displayName!.split(' ')[0],
+            'lastName': response.user!.displayName!.split(' ')[1],
+            'email': response.user!.email,
+            'phone': response.user!.phoneNumber,
+            'uid': response.user!.uid,
+          },
+        );
+      }
 
-      /*   await FirebaseFirestore.instance
-          .collection('merchants')
-          .doc(response.user!.uid)
-          .set(
-        {
-          'firstName': response.user!.displayName!.split(' ')[0],
-          'lastName': response.user!.displayName!.split(' ')[0],
-          'email': response.user!.email,
-          'phone': response.user!.phoneNumber,
-          'uid': response.user!.uid,
-        },
-      ); */
       return true;
     }
     return false;
@@ -97,5 +102,11 @@ class FirebaseAuthRepo implements IAuthRepo {
   @override
   Future<void> signOut() async {
     _authService.signOut();
+  }
+
+  @override
+  Future<String?> sendOTP({required String phoneNumber}) async {
+    await _authService.sendOTPCode(phoneNumber: phoneNumber);
+    return _authService.verificationId();
   }
 }

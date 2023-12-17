@@ -12,7 +12,7 @@ final locators = GetIt.instance;
 configurationDependencies() {
   locators.registerLazySingleton<IAuthRepo>(
     () => FirebaseAuthRepo(
-      FirebaseAuthService(),
+      FirebaseAuthService()
     ),
   );
 
