@@ -4,7 +4,8 @@ import 'package:payment_application_1/Presentation/widgets/FadeInDown.dart';
 import 'package:payment_application_1/Presentation/widgets/logupForm.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../../core/utils/constants.dart';
+import '../../../core/utils/appColors.dart';
+import '../../../core/utils/globales.dart';
 import '../../../core/utils/sharedAssets.dart';
 import '../../view-model/Auth/logupCubit.dart';
 import '../../widgets/defaultContainer.dart';
@@ -19,7 +20,7 @@ class LogupScreen extends StatelessWidget {
     globalLocale ??= AppLocalizations.of(context)!;
 
     return Scaffold(
-        backgroundColor: defaultColor,
+        backgroundColor:AppColors.  defaultColor,
         //appBar: AppBar(title: const Text('PAYMENT app')),
         body: BlocProvider<LogupCubit>(
           create: (_) => LogupCubit(),

@@ -4,7 +4,8 @@ import 'package:payment_application_1/Presentation/widgets/FadeInDown.dart';
 import 'package:payment_application_1/core/utils/sharedAssets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../../core/utils/constants.dart';
+import '../../../core/utils/appColors.dart';
+import '../../../core/utils/globales.dart';
 import '../../view-model/Auth/loginCubit.dart';
 import '../../widgets/defaultContainer.dart';
 import '../../widgets/loginForm.dart';
@@ -16,7 +17,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     globalLocale ??= AppLocalizations.of(context)!;
     return Scaffold(
-      backgroundColor: defaultColor,
+      backgroundColor: AppColors. defaultColor,
       //appBar: AppBar(title: const Text('PAYMENT app')),
       body: BlocProvider<LoginCubit>(
         // lazy: false,
@@ -36,12 +37,12 @@ class LoginScreen extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                SliverFillRemaining(
+                const SliverFillRemaining(
                   child: FadeInDown(
                     child: DefaultContainer(
                     
                       child: Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                             left: 18.0, right: 18.0, bottom: 5),
                         child: LoginForm(),
                       ),

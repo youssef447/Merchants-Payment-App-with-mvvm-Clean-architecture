@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../core/Network/local/cach_helper.dart';
-import '../../core/utils/constants.dart';
+import '../../core/utils/appColors.dart';
+import '../../core/utils/globales.dart';
 import 'package:country_flags/country_flags.dart';
 
 import '../../core/utils/sharedFunctions.dart';
@@ -30,7 +31,7 @@ class SplashScreen extends StatelessWidget {
         LocalesCubit cubit = LocalesCubit.get(context);
 
         return Scaffold(
-          backgroundColor: defaultColor,
+          backgroundColor:AppColors.  defaultColor,
           body: Padding(
             padding:
                 EdgeInsets.only(top: MediaQuery.of(context).viewPadding.top),
@@ -128,7 +129,7 @@ class SplashScreen extends StatelessWidget {
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.35,
                             child: DefaultButton(
-                              backgroundColor: defaultColor,
+                              backgroundColor:AppColors.  defaultColor,
                               foregroundColor: Colors.white,
                               raduis: 25,
                               elevation: 5,

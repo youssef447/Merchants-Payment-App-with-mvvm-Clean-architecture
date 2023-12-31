@@ -5,7 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:payment_application_1/Presentation/widgets/defaultButton.dart';
 
-import '../../../core/utils/constants.dart';
+import '../../../core/utils/appColors.dart';
+import '../../../core/utils/globales.dart';
 import '../../../core/utils/sharedAssets.dart';
 import '../../view-model/Auth/OtpCubit.dart';
 import '../../view-model/Auth/OtpStates.dart';
@@ -32,7 +33,7 @@ class OTPScreen extends StatelessWidget {
             OtpCubit cubit = OtpCubit.get(context);
             return Scaffold(
               resizeToAvoidBottomInset: false,
-              backgroundColor: defaultColor,
+              backgroundColor: AppColors. defaultColor,
               body: SafeArea(
                 child: OrientationBuilder(builder: (context, orientation) {
                   return CustomScrollView(
@@ -105,11 +106,11 @@ class OTPScreen extends StatelessWidget {
                                                             0.1),
                                                 OtpTextField(
                                                   numberOfFields: 6,
-                                                  fillColor: defaultColor
+                                                  fillColor: AppColors. defaultColor
                                                       .withOpacity(0.2),
                                                   filled: true,
                                                   focusedBorderColor:
-                                                      defaultColor,
+                                                      AppColors. defaultColor,
                                                   enabledBorderColor:
                                                       Colors.white,
                                                   borderRadius:
@@ -174,7 +175,7 @@ class OTPScreen extends StatelessWidget {
                                                     ? const CircularProgressIndicator()
                                                     : DefaultButton(
                                                         backgroundColor:
-                                                            defaultColor,
+                                                            AppColors. defaultColor,
                                                         elevation: 5,
                                                         shadowColor:
                                                             Colors.black,
