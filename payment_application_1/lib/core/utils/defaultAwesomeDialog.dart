@@ -1,7 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 
-import 'constants.dart';
+import 'appColors.dart';
 
 class AwesomeDialogUtil {
   static sucess({
@@ -23,8 +23,8 @@ class AwesomeDialogUtil {
       title: "VERIFICATION",
       dialogType: DialogType.success,
       padding: const EdgeInsets.all(15),
-      dialogBackgroundColor: defaultColor,
-      btnOkColor: defaultFieldsColor,
+      dialogBackgroundColor: AppColors. defaultColor,
+      btnOkColor:AppColors.  defaultFieldsColor,
       buttonsTextStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
             fontWeight: FontWeight.bold,
           ),
@@ -40,7 +40,7 @@ class AwesomeDialogUtil {
     Function()? btnOkOnPress,
   }) {
     AwesomeDialog(
-      dialogBackgroundColor: defaultColor,
+      dialogBackgroundColor: AppColors. defaultColor,
       dialogBorderRadius: BorderRadius.circular(30),
       context: context,
       body: msg == null
@@ -60,7 +60,7 @@ class AwesomeDialogUtil {
             ),
       title: title,
       dialogType: DialogType.error,
-      btnOkColor: defaultFieldsColor,
+      btnOkColor:AppColors.  defaultFieldsColor,
       buttonsTextStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
             fontWeight: FontWeight.bold,
           ),

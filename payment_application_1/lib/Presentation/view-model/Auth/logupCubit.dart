@@ -1,8 +1,11 @@
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl_phone_field/phone_number.dart';
 import 'package:payment_application_1/Domain/repositories/iAuthRepo.dart';
-import 'package:payment_application_1/core/utils/constants.dart';
+import 'package:payment_application_1/Presentation/screens/AuthScreens/LoginPage/loginScreen.dart';
+import 'package:payment_application_1/core/utils/globales.dart';
+import 'package:payment_application_1/core/utils/defaultAwesomeDialog.dart';
+import 'package:payment_application_1/core/utils/sharedFunctions.dart';
 
 import '../../../core/Di/injection.dart';
 import 'logupStates.dart';
@@ -52,8 +55,6 @@ class LogupCubit extends Cubit<LogupStates> {
     emit(PhoneRequiredMessageState());
   }
 
- 
-
   bool loadingLogUp = false;
 
   void signup({
@@ -61,14 +62,14 @@ class LogupCubit extends Cubit<LogupStates> {
     required String lastName,
     required String email,
     required String pass,
-    required String phone,
+    required  PhoneNumber phone,
     required BuildContext ctx,
   }) {
-    print('nooooooooooooooooooooooooooooooooooo');
+    
     loadingLogUp = true;
     emit(LogupLoadingState());
 
-    locators
+/*     locators
         .get<IAuthRepo>()
         .sendOTP(phoneNumber: phone).then((value) {
           //        navigate(context, OTPScreen(phoneNumber: phoneNumber),);
@@ -76,7 +77,7 @@ class LogupCubit extends Cubit<LogupStates> {
 
 
 
-        });
+        }); */
 
     locators
         .get<IAuthRepo>()
@@ -88,20 +89,19 @@ class LogupCubit extends Cubit<LogupStates> {
           phone: phone,
         )
         .then((value) {
-      loadingLogUp = false;
-      AwesomeDialog(
-          context: ctx,
-          body: Text(
-            "Registered Successfully",
-            style: Theme.of(ctx).textTheme.titleLarge,
-          ),
-          title: "Sign up",
-          dialogType: DialogType.success,
-          btnOkColor: defaultColor,
-          btnOkOnPress: () {
-            Navigator.of(ctx).pop();
-          }).show();
       emit(LogupSuccessState());
+
+   
+      AwesomeDialogUtil.sucess(
+          context: ctx,
+          body: "Registered Successfully",
+          title: "Sign up",
+          btnOkOnPress: () {
+            navigateTo(
+              ctx,
+              LoginScreen(),
+            );
+          });
     }).catchError((e) {
       loadingLogUp = false;
       emit(

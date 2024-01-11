@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="07d59bb3-254a-48af-b66e-bdb58321bd8e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/payment_application_1/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/android/app/src/profile/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/android/app/src/profile/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Data/models/Merchant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Data/models/Merchant.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Data/models/Order Registration API/request/OrderApiReq.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Data/models/Order Registration API/request/OrderApiReq.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Data/models/Order Registration API/request/item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Data/models/Order Registration API/request/item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Data/models/Order Registration API/request/shipping_details.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Data/models/Order Registration API/response/merchant.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Data/models/Order Registration API/shipping_data.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Data/repositories/firebaseAuthRepo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Data/repositories/firebaseAuthRepo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Data/repositories/paymentRepo.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Data/services/FirebaseAuthService.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Data/services/FirebaseAuthService.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Data/services/PaymobService.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Data/services/PaymobService.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Data/services/iAuthService.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Data/services/iAuthService.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Data/services/iPaymentService.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Data/services/iPaymentService.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Domain/repositories/iAuthRepo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Domain/repositories/iAuthRepo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Domain/repositories/iPaymentRepo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Domain/repositories/iPaymentRepo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/screens/AuthScreens/loginScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/screens/AuthScreens/loginScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/screens/AuthScreens/logupScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/screens/AuthScreens/logupScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/screens/AuthScreens/otpScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/screens/AuthScreens/otpScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/screens/Navlayouts/myProductsScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/screens/Navlayouts/myProductsScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/screens/Navlayouts/mySettingsScreen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/screens/homeScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/screens/homeScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/screens/splashScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/screens/splashScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/view-model/Auth/loginCubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/view-model/Auth/loginCubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/view-model/Auth/logupCubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/view-model/Auth/logupCubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/view-model/NavScreens/addProductCubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/view-model/NavScreens/addProductCubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/view-model/NavScreens/addProductStates.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/view-model/NavScreens/addProductStates.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/view-model/NavScreens/navCubit.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/view-model/NavScreens/navStates.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/view-model/NavScreens/settingsCubit.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/view-model/NavScreens/settingsStates.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/addItemSheet.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/defaultFormField.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/defaultFormField.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/inputQty.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/inputQty.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/lanscapeProductCard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/lanscapeProductCard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/loginForm.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/loginForm.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/logupForm.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/logupForm.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/merchantsProductsList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/merchantsProductsList.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/myProductsList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/myProductsList.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/noHistory.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/noHistory.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/noProducts.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/noProducts.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/passFormField.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/passFormField.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/portraitProductCard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/portraitProductCard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/productImage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/Presentation/widgets/productImage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/core/Di/injection.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/core/Di/injection.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/core/Network/remote/dio_helper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/core/Network/remote/dio_helper.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/core/utils/constants.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/core/utils/defaultAwesomeDialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/core/utils/defaultAwesomeDialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/core/utils/extensions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/core/utils/extensions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/core/utils/sharedFunctions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/core/utils/sharedFunctions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/core/utils/themes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/core/utils/themes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment_application_1/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/payment_application_1/windows/flutter/generated_plugins.cmake" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2aCj0TAchXnLEj5iUbod95noGHy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$PROJECT_DIR$/../../Android/Sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="SDK Location" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Dart" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="07d59bb3-254a-48af-b66e-bdb58321bd8e" name="Default Changelist" comment="" />
+      <created>1703829231862</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703829231862</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1703829572710">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1703829572710" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1703829649079">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1703829649079" />
+    <state x="414" y="214" width="609" height="281" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1703829573503">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="414" y="214" width="609" height="281" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1280.680@0.0.1280.680" timestamp="1703829573503" />
+  </component>
+</project>

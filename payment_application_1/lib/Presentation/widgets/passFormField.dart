@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:payment_application_1/Presentation/view-model/Auth/loginCubit.dart';
 
-import '../../core/utils/constants.dart';
+import '../../core/utils/appColors.dart';
+import '../../core/utils/globales.dart';
 import '../view-model/Auth/logupCubit.dart';
 import 'defaultFormField.dart';
 
@@ -11,7 +12,7 @@ class PassFormField extends StatelessWidget {
   final LogupCubit? logupCubit;
   final bool? secondPassField;
 
- late final String? _pass1;
+  late final String? _pass1;
   late final String _hintText;
   late final String _helperPassText;
 
@@ -26,7 +27,7 @@ class PassFormField extends StatelessWidget {
       super.key}) {
     _passController = passController;
     _hintText = hintText;
-     _pass1 = pass1;
+    _pass1 = pass1;
     _helperPassText = helperPassText;
   }
 
@@ -43,49 +44,49 @@ class PassFormField extends StatelessWidget {
               ? logupCubit!.showPassword2
               : logupCubit!.showPassword1,
       filled: true,
-      fillColor: defaultFieldsColor,
+      fillColor: AppColors.defaultFieldsColor,
       borderNone: true,
       radius: 25,
       enabled:
           //not login page,,  secondField, first field contains value
-           secondPassField != null && _pass1==null ? false : true,
+          secondPassField != null && _pass1 == null ? false : true,
       helperText: _helperPassText,
       hintText: _hintText,
       onchanged: (value) {
         if (secondPassField == true) {
           //cuz if null then this field is disabled and no comaprision is required and just return ""
-          if (_pass1!=null && value != _pass1) {
+          if (_pass1 != null && value != _pass1) {
             String helperText = globalLocale!.passMatch;
             logupCubit!.changeHelperText2(helperText);
           } else {
-            logupCubit!.changeHelperText2("");          }
+            logupCubit!.changeHelperText2("");
+          }
         } else {
           if (value.length < 6) {
             String helperText = globalLocale!.weakPass;
-            if(!login)
-                 {logupCubit!
-                    .firstPasswordChanged(pass: value, helperText: helperText);
-                 }
+            if (!login) {
+              logupCubit!
+                  .firstPasswordChanged(pass: value, helperText: helperText);
+            }
           } else {
-             if(!login)
-                 {
-                logupCubit!.firstPasswordChanged(pass: value, helperText: "");
-                 }
+            if (!login) {
+              logupCubit!.firstPasswordChanged(pass: value, helperText: "");
+            }
           }
         }
       },
       validate: (value) {
         if (secondPassField == true) {
           //cuz if null then this field is disabled and no comaprision is required and just return ""
-          if (_pass1!=null && value != _pass1) {
+          if (_pass1 != null && value != _pass1) {
             return globalLocale!.passMatch;
-          } 
+          }
         } else {
           if (value!.isEmpty) {
             return globalLocale!.passwordRequiredWarning;
           } else if (value.length < 6) {
-            if(!login){
-            return globalLocale!.weakPass;
+            if (!login) {
+              return globalLocale!.weakPass;
             }
           }
         }

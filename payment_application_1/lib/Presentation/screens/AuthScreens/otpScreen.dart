@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl_phone_field/phone_number.dart';
 
 import 'package:payment_application_1/Presentation/widgets/defaultButton.dart';
 
@@ -14,7 +15,7 @@ import '../../widgets/FadeInDown.dart';
 import '../../widgets/defaultContainer.dart';
 
 class OTPScreen extends StatelessWidget {
-  final String phoneNumber;
+  final PhoneNumber phoneNumber;
   const OTPScreen({
     Key? key,
     required this.phoneNumber,
@@ -22,18 +23,18 @@ class OTPScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String phone = phoneNumber.completeNumber;
     String? codeInput;
-
     return BlocProvider(
-        create: (context) => OtpCubit()
-          ..sendOTPRequest(phoneNumber: phoneNumber, context: context),
+        create: (context) =>
+            OtpCubit()..sendOTPRequest(phoneNumber: phone, context: context),
         child: BlocConsumer<OtpCubit, OtpStates>(
           listener: (BuildContext context, OtpStates state) {},
           builder: (BuildContext context, OtpStates state) {
             OtpCubit cubit = OtpCubit.get(context);
             return Scaffold(
               resizeToAvoidBottomInset: false,
-              backgroundColor: AppColors. defaultColor,
+              backgroundColor: AppColors.defaultColor,
               body: SafeArea(
                 child: OrientationBuilder(builder: (context, orientation) {
                   return CustomScrollView(
@@ -56,8 +57,7 @@ class OTPScreen extends StatelessWidget {
                               builder: (context, constraints) {
                                 return state is OtpSentLoadingState
                                     ? const Center(
-                                        child: LinearProgressIndicator(
-                                        ),
+                                        child: LinearProgressIndicator(),
                                       )
                                     : Padding(
                                         padding: const EdgeInsets.only(
@@ -92,7 +92,7 @@ class OTPScreen extends StatelessWidget {
                                                     style: Theme.of(context)
                                                         .textTheme
                                                         .titleMedium),
-                                                Text(phoneNumber,
+                                                Text(phone,
                                                     style: Theme.of(context)
                                                         .textTheme
                                                         .titleMedium!
@@ -106,11 +106,12 @@ class OTPScreen extends StatelessWidget {
                                                             0.1),
                                                 OtpTextField(
                                                   numberOfFields: 6,
-                                                  fillColor: AppColors. defaultColor
+                                                  fillColor: AppColors
+                                                      .defaultColor
                                                       .withOpacity(0.2),
                                                   filled: true,
                                                   focusedBorderColor:
-                                                      AppColors. defaultColor,
+                                                      AppColors.defaultColor,
                                                   enabledBorderColor:
                                                       Colors.white,
                                                   borderRadius:
@@ -147,7 +148,7 @@ class OTPScreen extends StatelessWidget {
                                                                 () async {
                                                               cubit.resendOTP(
                                                                 phoneNumber:
-                                                                    phoneNumber,
+                                                                    phone,
                                                                 context:
                                                                     context,
                                                               );
@@ -175,7 +176,8 @@ class OTPScreen extends StatelessWidget {
                                                     ? const CircularProgressIndicator()
                                                     : DefaultButton(
                                                         backgroundColor:
-                                                            AppColors. defaultColor,
+                                                            AppColors
+                                                                .defaultColor,
                                                         elevation: 5,
                                                         shadowColor:
                                                             Colors.black,

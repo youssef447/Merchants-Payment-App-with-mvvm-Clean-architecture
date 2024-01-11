@@ -59,6 +59,7 @@ class DefaultFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: validate,
       controller: controller,
 
@@ -85,7 +86,9 @@ class DefaultFormField extends StatelessWidget {
         helperText: helperText,
         enabled: enabled ?? true,
         label: label,
-        helperMaxLines: 2,
+        helperMaxLines: 1,
+        floatingLabelAlignment: FloatingLabelAlignment.start,
+        
 
         contentPadding: EdgeInsets.all(padding),
 

@@ -31,8 +31,7 @@ class _AddItemState extends State<AddProductSheet> {
 
   final TextEditingController _price = TextEditingController();
 
-  final TextEditingController _city = TextEditingController();
-  final TextEditingController _country = TextEditingController();
+
 
   final TextEditingController _apartment = TextEditingController();
   final TextEditingController _address = TextEditingController();
@@ -48,7 +47,9 @@ class _AddItemState extends State<AddProductSheet> {
     return BlocProvider(
       create: (context) => AddProductCubit(),
       child: BlocConsumer<AddProductCubit, AddProductStates>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          
+        },
         builder: (context, state) {
           var cubit = AddProductCubit.get(context);
           _address.text = cubit.addressField;
@@ -58,8 +59,8 @@ class _AddItemState extends State<AddProductSheet> {
             maxChildSize: 0.9,
             expand: false,
             builder: (context, scrollController) {
-              if (cubit.deliveryNeeded) {
-                scrollController.animateTo(height * 0.42,
+              if (cubit.deliveryNeeded ) {
+                scrollController.animateTo(height * 0.44,
                     duration: const Duration(milliseconds: 500),
                     curve: Curves.easeIn);
               }
@@ -172,9 +173,8 @@ class _AddItemState extends State<AddProductSheet> {
                           cubit.deliveryNeeded
                               ? ShippingDataForm(
                                   apartment: _apartment,
-                                  city: _city,
+                                
                                   companyName: _companyName,
-                                  country: _country,
                                   postalCode: _postalCode,
                                   address: _address,
                                 )
@@ -212,7 +212,7 @@ class _AddItemState extends State<AddProductSheet> {
                                     }
                                     if (_formkey.currentState!.validate()) {
                                       if (cubit.addReqMeesage == false &&
-                                          cubit.currReqMeesage == false) {}
+                                          cubit.currReqMeesage == false) {
 
                                       cubit.addOrder(
                                         ctx: context,
@@ -227,6 +227,7 @@ class _AddItemState extends State<AddProductSheet> {
                                         street: _address.text,
                                         postalCode: _postalCode.text,
                                       );
+                                    }
                                     }
                                   },
                                   child: const Text('Post'),

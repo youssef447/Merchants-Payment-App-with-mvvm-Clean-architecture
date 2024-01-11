@@ -1,13 +1,23 @@
-import '../../Data/models/Order Registration API/response/OrderApiResponse.dart';
+import 'dart:io';
 
-abstract class IPaymentRepo{
+import '../../Data/models/txnInquiryResponseModel.dart';
 
-Future<String> getAuthToken();
+abstract class IPaymentRepo {
+  Future<String> getAuthToken();
 
-  Future<OrderApiResponse> getOrderId(
-      {required Map<String, dynamic> query}) ;
+  Future<void> reqOrderToken(
+      {required Map<String, dynamic> orderReqQuery, List<File>? imgsFiles});
 
-  Future<OrderApiResponse> getpaymentToken(
-      {required Map<String, dynamic> query}) ;
-  }
+  Future<String> reqPaymentToken({
+    required Map<String, dynamic> query,
+  });
 
+  Future<String> reqKioskRef({
+    required String payToken,
+  });
+
+  Future<String> reqMobileWalletUrl({
+    required String payToken,
+  });
+  Future<TxnInquiryResponseModel> getTransactions();
+}

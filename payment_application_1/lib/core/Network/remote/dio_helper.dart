@@ -1,16 +1,14 @@
 import 'package:dio/dio.dart';
 
 class DioHelper {
-  static late Dio  dio;
+  static late final Dio dio;
   static init({required String baseUrl}) {
     dio = Dio(
       BaseOptions(
         baseUrl: baseUrl,
-        
         receiveDataWhenStatusError: true,
-        
+   //  validateStatus: (_) => true,
       ),
-      
     );
   }
 
@@ -24,6 +22,7 @@ class DioHelper {
       'lang': lang,
       'Content-Type': 'application/json',
       'Authorization': token ?? '',
+      'Connection': 'keep-alive',
     };
     return await dio.get(method, queryParameters: query);
   }
@@ -39,6 +38,7 @@ class DioHelper {
       'Content-Type': 'application/json',
       'lang': lang,
       'Authorization': token ?? '',
+      'Connection': 'keep-alive'
     };
 
     return await dio.post(

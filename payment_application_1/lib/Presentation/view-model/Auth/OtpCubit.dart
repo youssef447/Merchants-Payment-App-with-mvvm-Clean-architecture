@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:payment_application_1/Presentation/screens/AuthScreens/loginScreen.dart';
+import 'package:payment_application_1/Presentation/screens/AuthScreens/LoginPage/loginScreen.dart';
 import 'package:payment_application_1/core/utils/defaultAwesomeDialog.dart';
 import 'package:payment_application_1/core/utils/sharedFunctions.dart';
 

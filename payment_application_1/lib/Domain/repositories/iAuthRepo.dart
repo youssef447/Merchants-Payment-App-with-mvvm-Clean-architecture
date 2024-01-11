@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:intl_phone_field/phone_number.dart';
 
 abstract class IAuthRepo {
   /// returns verification Id, To be used later in phoneAuthCredential
@@ -10,8 +13,8 @@ abstract class IAuthRepo {
     required String firstName,
     required String lastName,
     required String pass,
-    required String phone,
-    String? imgUrl,
+    required  PhoneNumber phone,
+    File? profileImage,
   });
 
   Future<String> signInEmailPass({

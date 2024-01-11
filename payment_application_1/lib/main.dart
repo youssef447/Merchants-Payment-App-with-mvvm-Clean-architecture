@@ -5,19 +5,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
-import 'Presentation/screens/AuthScreens/logupScreen.dart';
 import 'Presentation/view-model/blocObserver.dart';
+import 'core/utils/paymobConstants.dart';
 import 'core/utils/sharedFunctions.dart';
 import 'core/utils/themes.dart';
 import 'Presentation/view-model/locales/locales cubit.dart';
 import 'Presentation/view-model/locales/locales states.dart';
-import 'Presentation/screens/AuthScreens/loginScreen.dart';
+import 'Presentation/screens/AuthScreens/LoginPage/loginScreen.dart';
 import 'Presentation/screens/splashScreen.dart';
 import 'Presentation/screens/homeScreen.dart';
 
 import 'core/Network/local/cach_helper.dart';
 import 'core/Network/remote/dio_helper.dart';
-import 'core/utils/constants.dart';
+import 'core/utils/globales.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'Presentation/screens/startupErrorScreen.dart';
@@ -31,12 +31,11 @@ void main() async {
   FlutterNativeSplash.preserve(
     widgetsBinding: binding,
   );
-
   try {
     await Firebase.initializeApp();
-   /*  await FirebaseAppCheck.instance.activate(
+    await FirebaseAppCheck.instance.activate(
         //webRecaptchaSiteKey: 'recaptcha-v3-site-key',
-        ); */
+        );
     configurationDependencies();
     await CacheHelper.init();
 
@@ -44,13 +43,7 @@ void main() async {
     if (CacheHelper.getData(key: 'started') == null) {
       homeWidget = const SplashScreen();
     } else {
-      /*  String? tmpToken = CacheHelper.getData(key: 'token');
-      if (tmpToken == null) {
-        homeWidget = LoginScreen();
-      } else {
-        token = tmpToken;
-        homeWidget = const HomeScreen();
-      } */
+      
 
       if (isLoggedIn()) {
         // signed in
@@ -59,9 +52,8 @@ void main() async {
         homeWidget = LoginScreen();
       }
     }
-    homeWidget = LogupScreen();
 
-    DioHelper.init(baseUrl: baseUrl);
+    DioHelper.init(baseUrl: PaymobConstants.baseUrl);
     runApp(MyApp(home: homeWidget));
     FlutterNativeSplash.remove();
   } catch (_) {
@@ -76,7 +68,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     topPadding = MediaQuery.of(context).padding.top;
     height = MediaQuery.of(context).size.height - topPadding;
-    width = MediaQuery.of(context).size.width - topPadding;
+    width = MediaQuery.of(context).size.width ;
 
     return BlocProvider(
       create: (context) => LocalesCubit(),
@@ -92,7 +84,7 @@ class MyApp extends StatelessWidget {
             cubit.selectedLang = const Locale('en');
             cubit.selectedValue = Languages.english;
           }
-
+ 
           return MaterialApp(
               title: 'Payment app',
               locale: cubit.selectedLang,

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -6,7 +5,8 @@ import 'package:payment_application_1/core/utils/sharedFunctions.dart';
 import 'package:payment_application_1/Presentation/screens/homeScreen.dart';
 
 import '../../../Domain/repositories/iAuthRepo.dart';
-import '../../../core/utils/constants.dart';
+import '../../../core/utils/appColors.dart';
+import '../../../core/utils/globales.dart';
 import '../../../core/Di/injection.dart';
 import '../../widgets/FadeInDown.dart';
 import 'loginStates.dart';
@@ -35,36 +35,39 @@ class LoginCubit extends Cubit<LoginStates> {
         .get<IAuthRepo>()
         .signInEmailPass(email: email, pass: pass)
         .then((uid) {
-
-     if(uid.isNotEmpty){ emit(LoginSuccessState());
-      if (ctx.mounted) {
-        const Duration(milliseconds: 600);
-        navigateTo(ctx, const HomeScreen());
-      }
+      if (uid.isNotEmpty) {
+        emit(LoginSuccessState());
+        if (ctx.mounted) {
+          const Duration(milliseconds: 600);
+          navigateTo(ctx, const HomeScreen());
         }
-      else{
-          showDialog(
-        context: ctx,
-        builder: (BuildContext context) => FadeInDown(
-          child: AlertDialog(
-            icon: const Icon(
-              Icons.warning_outlined,
-              color: Colors.red,
-            ),
-            backgroundColor: defaultColor,
-            content: Text(
-              'current User not verified, please try again to Sign Up',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: Colors.white,
-                  ),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25),
+      } else {
+        emit(
+          LoginFaluireState('current User not verified'),
+        );
+
+        showDialog(
+          context: ctx,
+          builder: (BuildContext context) => FadeInDown(
+            child: AlertDialog(
+              icon: const Icon(
+                Icons.warning_outlined,
+                color: Colors.red,
+              ),
+              backgroundColor: AppColors.defaultColor,
+              content: Text(
+                'current User not verified, please complete Sign Up',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      color: Colors.white,
+                    ),
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25),
+              ),
             ),
           ),
-        ),
-      );
+        );
       }
     }).catchError((error) {
       emit(LoginFaluireState(error.toString()));
@@ -86,10 +89,8 @@ class LoginCubit extends Cubit<LoginStates> {
         emit(GoogleLoginCanceledState());
       } else {
         emit(GoogleLoginSuccessState());
-        if (ctx.mounted) {
-          const Duration(milliseconds: 600);
-          navigateTo(ctx, const HomeScreen());
-        }
+
+        navigateTo(ctx, const HomeScreen());
       }
     }).catchError((error) {
       emit(GoogleLoginFaluireState(error.toString()));

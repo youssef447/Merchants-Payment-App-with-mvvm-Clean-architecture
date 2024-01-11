@@ -36,6 +36,7 @@ class MyProductsList extends StatelessWidget {
                           ? Axis.horizontal
                           : Axis.vertical,
                       physics: const AlwaysScrollableScrollPhysics(),
+                      
                       itemBuilder: (context, index) {
                         return orientation == Orientation.portrait
                             ? PortraitProductCard(cubit.myOrders[index])
@@ -44,7 +45,7 @@ class MyProductsList extends StatelessWidget {
                       itemCount: cubit.myOrders.length,
                       itemExtent: orientation == Orientation.landscape
                           ? width * 0.6
-                          : height * 0.44,
+                          : height * 0.45,
                     )
                   : state is MyProductsSuccessState
                       ? Stack(

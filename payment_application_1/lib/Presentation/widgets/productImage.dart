@@ -5,12 +5,15 @@ import 'package:image_picker/image_picker.dart';
 import 'package:payment_application_1/core/utils/sharedAssets.dart';
 import 'package:payment_application_1/Presentation/view-model/NavScreens/addProductCubit.dart';
 
-import '../../core/utils/constants.dart';
+import '../../core/utils/appColors.dart';
+import '../../core/utils/globales.dart';
 import '../../core/utils/sharedFunctions.dart';
 
 class ProductImage extends StatefulWidget {
   final BuildContext ctx;
   final AddProductCubit cubit;
+
+  ///if null then no image to show and we show the default asset image
   final File? img;
 
   const ProductImage(
@@ -30,10 +33,10 @@ class _ProductImageState extends State<ProductImage> {
                 await pickIamge(ctx: context, source: ImageSource.gallery),
               );
 
+              ///make sure he actually picked images
               if (widget.cubit.imgFiles.isNotEmpty) {
                 widget.cubit.changeImage();
               }
-              //imageFile != null ? setState(() {}) : null;
             },
             child: Container(
               height: MediaQuery.of(context).orientation == Orientation.portrait
@@ -45,7 +48,7 @@ class _ProductImageState extends State<ProductImage> {
                 borderRadius: const BorderRadius.all(
                   Radius.circular(20),
                 ),
-                color: defaultFieldsColor,
+                color: AppColors.defaultFieldsColor,
               ),
               child: Column(
                 children: [
@@ -79,7 +82,7 @@ class _ProductImageState extends State<ProductImage> {
               borderRadius: const BorderRadius.all(
                 Radius.circular(20),
               ),
-              color: defaultFieldsColor,
+              color: AppColors.defaultFieldsColor,
             ),
           );
   }

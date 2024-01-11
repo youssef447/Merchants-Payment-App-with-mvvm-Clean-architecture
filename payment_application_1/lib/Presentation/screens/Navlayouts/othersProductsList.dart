@@ -44,7 +44,7 @@ class OthersProductsList extends StatelessWidget {
                     itemCount: cubit.othersOrders.length,
                     itemExtent: orientation == Orientation.landscape
                         ? width * 0.6
-                        : height * 0.44,
+                        : height * 0.5,
                   )
                 : state is OtherProductsSuccessState
                     ? Stack(

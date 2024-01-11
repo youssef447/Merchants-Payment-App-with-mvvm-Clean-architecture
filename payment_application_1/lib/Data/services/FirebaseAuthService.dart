@@ -22,17 +22,14 @@ class FirebaseAuthService implements IAuthService {
     }
   }
 
+
   @override
   Future<UserCredential> signUp({
     required String email,
-    required String firstName,
-    required String lastName,
+   
     required String pass,
-    required String phone,
-    File? profileImage,
   }) async {
     try {
-      sendOTPCode(phoneNumber: phone).then((value) => null);
       final response =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
@@ -42,35 +39,6 @@ class FirebaseAuthService implements IAuthService {
     } on SocketException {
       throw ('No Internet Connection');
     }
-    /* .then((value) async {
-      final storageRef = FirebaseStorage.instance.ref();
-
-      if (profileImage != null) {
-        await storageRef
-            .child(value.user!.uid)
-            .child("profile")
-            .putFile(profileImage);
-
-        profileImageUrl = await storageRef
-            .child(value.user!.uid)
-            .child("profile")
-            .getDownloadURL();
-      }
-
-      Merchant merchant = Merchant(
-        email: email,
-        firstName: firstName,
-        profileIimageUrl: profileImageUrl ?? '',
-        phone: phone,
-        token: value.user!.uid,
-        lastName: lastName,
-      );
-      await FirebaseFirestore.instance
-          .collection('merchants')
-          .doc(merchant.token)
-          .set(merchant.toJson());
-    });
- */
   }
 
   @override
@@ -127,4 +95,36 @@ class FirebaseAuthService implements IAuthService {
       codeAutoRetrievalTimeout: (verificationId) {},
     );
   }
+
+
+
+  /* @override
+  Future<DocumentSnapshot<Map<String, dynamic>>> getUser() async {
+    return await FirebaseFirestore.instance
+        .collection('merchants')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+  }
+
+  @override
+  Future<void> updateUser(Map<String, dynamic> data) async {
+    await FirebaseFirestore.instance
+        .collection('merchants')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .update(data);
+  }
+
+  @override
+  Future<DocumentSnapshot<Map<String, dynamic>>> getOthersProducts() {
+    
+    // TODO: implement getOthersProducts
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<DocumentSnapshot<Map<String, dynamic>>> getMyProduct() {
+    // TODO: implement getProduct
+    throw UnimplementedError();
+  } */
+
 }

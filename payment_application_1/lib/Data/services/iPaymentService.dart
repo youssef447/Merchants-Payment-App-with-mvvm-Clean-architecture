@@ -3,15 +3,19 @@ import 'package:dio/dio.dart';
 abstract class IPaymentService{
 
 
-   Future<Response<dynamic>> getAuthResponse();
+   Future<Response<dynamic>> reqAuthToken();
 
-   Future<Response<dynamic>> getOrderResponse({required Map<String,dynamic>query});
+   Future<Response<dynamic>> reqOrderToken({required Map<String,dynamic>query});
 
-      Future<Response<dynamic>> getPaymentkeyResponse({required Map<String,dynamic>query});
-
-
+      Future<Response<dynamic>> reqPaymentToken({required Map<String,dynamic>query});
 
 
+
+      Future<Response<dynamic>> reqKioskRef({required Map<String,dynamic>query});
+            Future<Response<dynamic>> reqMobileWalletUrl({required Map<String,dynamic>query});
+
+
+      Future<Response<dynamic>> getTransactions({required Map<String,dynamic>query});
 
 
 }

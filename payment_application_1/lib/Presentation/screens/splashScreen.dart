@@ -14,7 +14,7 @@ import '../widgets/defaultButton.dart';
 import '../widgets/defaultContainer.dart';
 import '../view-model/locales/locales cubit.dart';
 import '../view-model/locales/locales states.dart';
-import 'AuthScreens/loginScreen.dart';
+import 'AuthScreens/LoginPage/loginScreen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({

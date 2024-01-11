@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../core/utils/constants.dart';
 import '../../core/utils/sharedAssets.dart';
 import 'FadeInDown.dart';
 
@@ -10,9 +9,9 @@ class NoHistory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: FadeInDown(
+    return FadeInDown(
+      child: SizedBox(
+        width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -20,12 +19,14 @@ class NoHistory extends StatelessWidget {
               'No Transactions Yet',
               style: Theme.of(context).textTheme.titleLarge,
             ),
-            SizedBox(
-              height: (height - kBottomNavigationBarHeight) * 0.5,
-              child: Lottie.asset(
-                AnimsAssets.transactions,
-                width: width * 0.6,
-                fit: BoxFit.contain,
+            Flexible(
+              child: FractionallySizedBox(
+                widthFactor: 0.5,
+                heightFactor: 0.5,
+                child: Lottie.asset(
+                  AnimsAssets.transactions,
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
           ],
